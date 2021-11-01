@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/p5.min.js"></script>
+</head>
+<body>
+    
+    <div>
+        <div class="container">
+            <div class="form-outer">
+                <h1>コスゲリアン迷路</h1>
+                <p>数字を動かしたら結果が変わることを確かめてみよう！</p>
+                    <div class="row form-item">
+                        <h2 class="form-label">1、ゲームエリアの縦と横のサイズを決めよう(数字をそれぞれ入力)</h2>
+                        <div class="col-6">
+                            <label for="yoko">横</label>
+                            <input type="number" id="yoko" max="300" min="1" class="form-control" value="100">
+                        </div>
+                        <div class="col-6">
+                            <label for="tate">縦</label>
+                            <input type="number" id="tate" max="300" min="1" class="form-control" value="100">
+                        </div>
+                    </div>
+
+                    <div class="row form-item">
+                        <h2 class="form-label">2、置きたい画像を決めよう</h2>
+                        <div class="col-12">
+                            今回は元祖コスゲリアンを使いましょう！
+                            <img src="stamp18.png" alt="">
+                        </div>
+                    </div>
+
+
+                    <div class="row form-item">
+                        <h2 class="form-label">3、ゲームエリア内に画像を配置する場所と大きさを決めよう(数字をそれぞれ入力)</h2>
+                        <div class="col-6">
+                            <label for="hidari">左から●●px</label>
+                            <input type="number" id="hidari" max="300" min="0" class="form-control" value="0">
+                        </div>
+                        <div class="col-6">
+                            <label for="ue">上から●●px</label>
+                            <input type="number" id="ue" max="300" min="0" class="form-control" value="0">
+                        </div>
+                        <div class="col-6">
+                            <label for="w">画像の横幅</label>
+                            <input type="number" id="w" max="300" min="1" class="form-control" value="10">
+                        </div>
+                        <div class="col-6">
+                            <label for="h">画像の高さ</label>
+                            <input type="number" id="h" max="300" min="1" class="form-control" value="10">
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <button id="save" class="btn btn-primary">プログラムのコードを作る</button>
+                    </div>
+
+                    <div class="form-item">
+                        <div id="code-area"></div>
+                    </div>
+
+                    <div class="form-item">
+                        <button id="play" class="btn btn-primary">プログラムにお願いする</button>
+                    </div>
+
+                    <div class="form-item">
+                        <iframe src="" frameborder="0" width="300" height="300" id="game-area"></iframe>
+                    </div>
+            </div>
+            
+        </div>
+
+    </div>
+    <script>
+        document.querySelector('#save').addEventListener('click', ()=>{
+            const areaW = document.querySelector('#yoko').value;
+            const areaH = document.querySelector('#tate').value;
+            const hidari = document.querySelector('#hidari').value;
+            const ue = document.querySelector('#ue').value;
+            const w = document.querySelector('#w').value;
+            const h = document.querySelector('#h').value;
+            const code = `
+let img;<br>
+
+function setup() {<br>
+    createCanvas(${areaW}, ${areaH});<br>
+}<br>
+<br>
+function preload() {<br>
+    img = loadImage('stamp18.png');<br>
+}<br>
+<br>
+function draw() {<br>
+    image(img, ${hidari}, ${ue}, ${w}, ${h});<br>
+}`
+
+            document.querySelector("#code-area").innerHTML = code;
+        });
+
+
+
+        document.querySelector('#play').addEventListener('click', ()=>{
+            document.querySelector('#game-area').src = "game.html";
+        });
+    </script>
+
+
+</body>
+</html>
