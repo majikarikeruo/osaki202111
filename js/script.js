@@ -1,29 +1,35 @@
-
 const parent = window.parent.document;
-const areaW = parent.querySelector('#yoko').value;
-const areaH = parent.querySelector('#tate').value;
-const hidari = parent.querySelector('#hidari').value;
-const ue = parent.querySelector('#ue').value;
-const w = parent.querySelector('#w').value;
-const h = parent.querySelector('#h').value;
-
-
-
-
-
+const x = parent.querySelector("#x").value;
+const y = parent.querySelector("#y").value;
+const buttonW = parent.querySelector("#button-w").value;
+const buttonH = parent.querySelector("#button-h").value;
 
 let img;
 
 function setup() {
-    createCanvas(areaW, areaH);
+  const canvas = createCanvas(320, 350);
+  const area = document.querySelector("#canvasArea");
+  canvas.parent(area);
+  const leftButton = setButton("←", {
+    x: x,
+    y: y,
+  });
+
+  leftButton.parent(area);
 }
 
-// 画像のプリロード
 function preload() {
-    img = loadImage('stamp18.png');
+  img = loadImage("stamp18.png");
 }
-
 
 function draw() {
-    image(img, hidari, ue, w, h);
+  background(220);
+  image(img, 0, 0, 40, 40);
+}
+
+function setButton(label, pos) {
+  const button = createButton(label);
+  button.size(buttonW, buttonH);
+  button.position(pos.x, pos.y);
+  return button;
 }
