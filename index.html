@@ -159,6 +159,9 @@
               <p>
                 うまくいったら、同じようなことをあと3回やれば、4つボタンを表示することができるわけですね！
               </p>
+              <button class="btn btn-success mb-2" id="answer">
+                正解が知りたい方はここを押す
+              </button>
               <a href="step2.html" class="btn btn-primary">Step2にすすむ</a>
               <p class="small text-muted mt-2">
                 ※Step2では、ボタンが4つ設置された状態から続きをやっていきます！
@@ -211,6 +214,10 @@ function draw() {<br>
 
       document.querySelector("#btn-play").addEventListener("click", () => {
         document.querySelector("#game1Frame").src = "game1.html";
+      });
+
+      document.querySelector("#answer").addEventListener("click", () => {
+        alert("正解は、横0・縦320・幅80・高さ30、です！");
       });
     </script>
   </body>
