@@ -26,30 +26,34 @@
         <div class="container">
           <div class="form-outer">
             <h1 class="h1 font-weight-bold">コスゲリアン迷路</h1>
-            <p>ゲームエリア上のキャラクターを動かしてみよう！</p>
-            <p>Stepごとに少しずつ作っていって完成させよう！</p>
 
             <hr class="mt-4 mb-4" />
 
             <div class="mt-4">
               <h2 class="h3 font-weight-bold mb-3">
-                Step1・ゲームエリア上にボタンを置こう！
+                Step2・ボタンを押したらキャラクターが動くようにしよう！
               </h2>
               <p>
-                ゲームエリアは<span class="text-danger">横320px、縦350px</span
-                >という大きさになっています。
+                次は、ボタンを押したらキャラクターが動くようにしてみましょう！
               </p>
 
               <div class="mb-4">
-                <img src="images/image01.jpg" alt="" />
+                <img src="images/image03.jpg" alt="" />
               </div>
               <p class="mb-4">
-                ゲームエリアにボタンを置くには、以下のようなコードを使います。<br /><br />4つボタンを置きたいのであれば、4回このコードを使うことになりますね！
+                キャラクターを移動させるには、まず<span class="text-danger"
+                  >「キャラクタが今ゲームエリアの中でどの場所にいるのか」</span
+                >を数字で表してプログラムに教えてあげる必要があります!
               </p>
               <div style="margin: 0 -12px" class="mb-3">
-                <img src="images/image02.png" alt="" />
+                <img src="images/image04.png" alt="" />
                 <p class="small text-muted" style="margin: 0 12px">
                   ※小さめのスマホで見ている方、ごめんなさい…涙
+                </p>
+              </div>
+              <div class="mb-3">
+                <p>
+                  プログラムには、色々な情報をコンピューターに記憶させる仕組みがあります！<br /><br />この仕組みを使って、キャラクターのいる場所を記憶させましょう！
                 </p>
               </div>
             </div>
@@ -57,36 +61,123 @@
             <div class="mt-4">
               <div>
                 <p class="mb-4">
-                  <span class="text-primary">それではここで問題です！</span
-                  >先ほどの完成イメージを見た上で答えてみてね！
+                  コンピューターに何かを記憶させるためには、ある目印をつけてあげます。その目印をつけると、
                 </p>
                 <div class="mb-4 bg-light p-2">
-                  <h3 class="h6 font-weight-bold">■やりたいこと</h3>
-                  <p class="small">
-                    <span class="text-danger">「横320・縦350」</span
-                    >のゲームエリアの1番下に、<span class="text-danger"
-                      >「幅80・高さが30」</span
-                    >のボタンを4つ並べたい!
-                  </p>
-                </div>
-                <div class="mb-4">↓↓↓↓</div>
-                <div class="bg-light p-3 mb-4">
                   <h3 class="h6 font-weight-bold">
-                    ■やりたいことを実現するために
+                    ■情報を記憶させる目印のつけかた
                   </h3>
+                  <ul class="small px-3">
+                    <li>
+                      <span class="text-danger d-inline-block mx-2">const</span
+                      >imgX = 0;<br />
+                      <p class="small text-muted">
+                        コンピューターの頭脳の中に「imgX」という場所を作り、その中に0という数字を記憶させる
+                      </p>
+                    </li>
+                    <li>
+                      <span class="text-danger d-inline-block mx-2">let</span
+                      >imgY = 0;<br />
+                      <p class="small text-muted">
+                        コンピューターの頭脳の中に「imgY」という場所を作り、その中に0という数字を記憶させる
+                      </p>
+                    </li>
+                  </ul>
                   <p class="small">
-                    プログラムに<span class="text-danger"
-                      >「ゲームエリア上で、横●●・縦●●の場所に、幅●●・高さ●●ボタンをおいてねー！」</span
-                    >と教えてあげることで、ゲームエリアにボタンが表示されます。
+                    このように、constあるいはletというものを目印とします。
                   </p>
                 </div>
-                <p>
-                  以下の空欄を埋めてゲームエリアにボタンを表示するお願いごとを完成させてみましょう！
-                </p>
+                <div class="mb-4">
+                  <p>
+                    constとletの違いは、「記憶させたデータを書き換え可能かどうか」という点です！
+                  </p>
+                </div>
+                <div class="bg-light p-3 mb-4">
+                  <h3 class="h6 font-weight-bold">■constとletの違い</h3>
+                  <ul class="small px-3">
+                    <li class="mb-2">
+                      <span class="text-danger d-inline-block">const</span
+                      >・・・記憶させたデータを書き換えできない。
+                    </li>
+                    <li>
+                      <span class="text-danger d-inline-block">let</span
+                      >・・・記憶させたデータを書き換えできる。
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <p>
+                    <span class="text-danger">ここで問題！</span
+                    ><br />キャラクターの位置情報をコンピューターの頭脳に記憶させるとき、constとletのどちらを使えばいいでしょうか？お選びください！
+                  </p>
+                  <div class="bg-light p-3 mb-4">
+                    <ul style="list-style: none" class="px-0">
+                      <li class="mb-2">
+                        <input
+                          type="radio"
+                          name="variable"
+                          id="btn-const"
+                          class="mx-2"
+                        />const
+                      </li>
+                      <li>
+                        <input
+                          type="radio"
+                          name="variable"
+                          id="btn-let"
+                          class="mx-2"
+                        />let
+                      </li>
+                    </ul>
+                  </div>
+                  <script>
+                    window.addEventListener("load", function () {
+                      document
+                        .querySelector("#btn-const")
+                        .addEventListener("click", () => {
+                          alert("残念！不正解！");
+                        });
+                      document
+                        .querySelector("#btn-let")
+                        .addEventListener("click", () => {
+                          alert("正解！");
+                        });
+                    });
+                  </script>
+                  <div>
+                    <p>正解できましたか？？</p>
+                    <p>実際にコードで表すと、以下のようになります！</p>
+                  </div>
+                  <div class="bg-light p-3 mb-4">
+                    <ul style="list-style: none" class="px-0">
+                      <li class="mb-2">
+                        let imgX = 0;
+                        <span class="text-muted"
+                          >//キャラクターの横位置を記憶させる</span
+                        >
+                      </li>
+                      <li class="mb-2">
+                        let imgY = 0;
+                        <span class="text-muted"
+                          >//キャラクターの縦位置を記憶させる</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
             <hr class="mt-4 mb-4" />
             <div class="mt-4">
+              <h2 class="h6 font-weight-bold">
+                ■ボタンを押してキャラクターを動かす
+              </h2>
+              <p>それではボタンを押してキャラクターが動くようにしましょう！</p>
+              <p>
+                キャラクターが動くようにするには、<span class="text-danger"
+                  >先ほど紹介したプログラムに対して足し算引き算をしてあげれば</span
+                >OKとなります！
+              </p>
               <div class="bg-light p-3 mb-4">
                 <h3 class="h6 font-weight-bold">■プログラムへのお願いごと</h3>
                 <div class="form-group">
