@@ -1,0 +1,16 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+#canvasArea {
+  position: relative;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  padding: 0 10px;
+}
