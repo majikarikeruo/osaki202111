@@ -54,6 +54,19 @@
         topButton.parent(area);
         rightButton.parent(area);
         bottomButton.parent(area);
+
+        leftButton.mousePressed(function () {
+          console.log("test", img);
+        });
+        topButton.mousePressed(function () {
+          console.log("test2", img);
+        });
+        rightButton.mousePressed(function () {
+          console.log("test3", img);
+        });
+        bottomButton.mousePressed(function () {
+          console.log("test4", img);
+        });
       }
       function preload() {
         img = loadImage("stamp18.png");
