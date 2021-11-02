@@ -28,6 +28,10 @@
     </main>
     <script>
       let img;
+      let imgPos = {
+        x: 0,
+        y: 0,
+      };
 
       function setup() {
         const canvas = createCanvas(400, 330);
@@ -57,15 +61,19 @@
 
         leftButton.mousePressed(function () {
           console.log("test", img);
+          imgPos["x"] -= 40;
         });
         topButton.mousePressed(function () {
           console.log("test2", img);
+          imgPos["y"] -= 40;
         });
         rightButton.mousePressed(function () {
           console.log("test3", img);
+          imgPos["x"] += 40;
         });
         bottomButton.mousePressed(function () {
           console.log("test4", img);
+          imgPos["y"] += 40;
         });
       }
       function preload() {
@@ -73,7 +81,7 @@
       }
       function draw() {
         background(220);
-        image(img, 0, 0, 40, 40);
+        image(img, imgPos["x"], imgPos["y"], 40, 40);
       }
 
       function setButton(label, pos) {
